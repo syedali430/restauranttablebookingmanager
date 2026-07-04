@@ -9,7 +9,7 @@ public class Booking {
     private String tableNumber;
     private String bookingDate;
     private String bookingTime;
-    private String numberOfGuests;
+    private String specialRequest;
 
     public Booking() {
     }
@@ -19,14 +19,14 @@ public class Booking {
             String tableNumber,
             String bookingDate,
             String bookingTime,
-            String numberOfGuests) {
+            String specialRequest) {
 
         this.bookingId = bookingId;
         this.customerName = customerName;
         this.tableNumber = tableNumber;
         this.bookingDate = bookingDate;
         this.bookingTime = bookingTime;
-        this.numberOfGuests = numberOfGuests;
+        this.specialRequest = specialRequest;
     }
 
     public String getBookingId() {
@@ -69,12 +69,12 @@ public class Booking {
         this.bookingTime = bookingTime;
     }
 
-    public String getNumberOfGuests() {
-        return numberOfGuests;
+    public String getSpecialRequest() {
+        return specialRequest;
     }
 
-    public void setNumberOfGuests(String numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
+    public void setSpecialRequest(String specialRequest) {
+        this.specialRequest = specialRequest;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class Booking {
                 && Objects.equals(tableNumber, booking.tableNumber)
                 && Objects.equals(bookingDate, booking.bookingDate)
                 && Objects.equals(bookingTime, booking.bookingTime)
-                && Objects.equals(numberOfGuests, booking.numberOfGuests);
+                && Objects.equals(specialRequest, booking.specialRequest);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Booking {
                 tableNumber,
                 bookingDate,
                 bookingTime,
-                numberOfGuests);
+                specialRequest);
     }
 
     @Override
@@ -113,6 +113,6 @@ public class Booking {
                 + tableNumber + " - "
                 + bookingDate + " - "
                 + bookingTime + " - "
-                + numberOfGuests;
+                + specialRequest;
     }
 }
