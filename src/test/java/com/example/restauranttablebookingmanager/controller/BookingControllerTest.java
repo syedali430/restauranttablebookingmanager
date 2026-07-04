@@ -132,4 +132,26 @@ public class BookingControllerTest {
         inOrder.verify(bookingRepository).update(booking);
         inOrder.verify(bookingView).updateBooking(booking);
     }
+
+    @Test
+    public void testDeletingExistingBooking() {
+
+        Booking booking =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        when(bookingRepository.findById("TBL-001")).thenReturn(booking);
+
+        bookingController.deleteBooking(booking);
+
+        InOrder inOrder = inOrder(bookingRepository, bookingView);
+        inOrder.verify(bookingRepository).delete("TBL-001");
+        inOrder.verify(bookingView).deleteBooking(booking);
+    }
 }
