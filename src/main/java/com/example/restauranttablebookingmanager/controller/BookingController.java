@@ -17,11 +17,6 @@ public class BookingController {
         this.view = view;
     }
 
-    public void getAllBookings() {
-
-        view.displayBookings(repository.findAll());
-    }
-
     public synchronized void addBooking(Booking booking) {
 
         Booking existing =
@@ -40,5 +35,30 @@ public class BookingController {
 
         repository.save(booking);
         view.addBooking(booking);
+    }
+
+    public void getAllBookings() {
+
+        view.displayBookings(repository.findAll());
+    }
+
+    public synchronized void updateBooking(Booking booking) {
+
+        Booking existing =
+                repository.findById(booking.getBookingId());
+
+        if (existing == null) {
+
+            view.showErrorMessage(
+                    "No booking found with ID "
+                            + booking.getBookingId(),
+                    booking
+            );
+
+            return;
+        }
+
+        repository.update(booking);
+        view.updateBooking(booking);
     }
 }
