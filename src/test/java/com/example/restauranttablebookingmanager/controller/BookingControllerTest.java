@@ -110,4 +110,26 @@ public class BookingControllerTest {
         inOrder.verify(bookingRepository).save(booking);
         inOrder.verify(bookingView).addBooking(booking);
     }
+
+    @Test
+    public void testUpdatingExistingBooking() {
+
+        Booking booking =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        when(bookingRepository.findById("TBL-001")).thenReturn(booking);
+
+        bookingController.updateBooking(booking);
+
+        InOrder inOrder = inOrder(bookingRepository, bookingView);
+        inOrder.verify(bookingRepository).update(booking);
+        inOrder.verify(bookingView).updateBooking(booking);
+    }
 }
