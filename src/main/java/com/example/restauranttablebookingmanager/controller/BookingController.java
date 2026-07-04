@@ -28,6 +28,13 @@ public class BookingController {
                 repository.findById(booking.getBookingId());
 
         if (existing != null) {
+
+            view.showErrorMessage(
+                    "Booking already exists with ID "
+                            + booking.getBookingId(),
+                    existing
+            );
+
             return;
         }
 
