@@ -1,7 +1,10 @@
 package com.example.restauranttablebookingmanager.controller;
 
 import static java.util.Arrays.asList;
+import static org.mockito.Mockito.ignoreStubs;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -9,6 +12,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -48,5 +52,27 @@ public class BookingControllerTest {
         bookingController.getAllBookings();
 
         verify(bookingView).displayBookings(bookings);
+    }
+
+    @Test
+    public void testAddNewBookingWhenBookingDoesNotExist() {
+
+        Booking booking =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        when(bookingRepository.findById("TBL-001")).thenReturn(null);
+
+        bookingController.addBooking(booking);
+
+        InOrder inOrder = inOrder(bookingRepository, bookingView);
+        inOrder.verify(bookingRepository).save(booking);
+        inOrder.verify(bookingView).addBooking(booking);
     }
 }
