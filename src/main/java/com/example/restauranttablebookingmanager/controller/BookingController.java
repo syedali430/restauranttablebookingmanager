@@ -61,4 +61,24 @@ public class BookingController {
         repository.update(booking);
         view.updateBooking(booking);
     }
+
+    public synchronized void deleteBooking(Booking booking) {
+
+        Booking existing =
+                repository.findById(booking.getBookingId());
+
+        if (existing == null) {
+
+            view.showErrorMessage(
+                    "No booking found with ID "
+                            + booking.getBookingId(),
+                    booking
+            );
+
+            return;
+        }
+
+        repository.delete(booking.getBookingId());
+        view.deleteBooking(booking);
+    }
 }
