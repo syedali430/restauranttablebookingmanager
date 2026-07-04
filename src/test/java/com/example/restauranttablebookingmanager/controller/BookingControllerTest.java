@@ -134,6 +134,31 @@ public class BookingControllerTest {
     }
 
     @Test
+    public void testUpdatingMissingBooking() {
+
+        Booking booking =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        when(bookingRepository.findById("TBL-001")).thenReturn(null);
+
+        bookingController.updateBooking(booking);
+
+        verify(bookingView).showErrorMessage(
+                "No booking found with ID TBL-001",
+                booking
+        );
+
+        verifyNoMoreInteractions(ignoreStubs(bookingRepository));
+    }
+
+    @Test
     public void testDeletingExistingBooking() {
 
         Booking booking =
