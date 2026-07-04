@@ -18,9 +18,17 @@
     <junit.version>4.13.2</junit.version>
     <assertj.version>3.17.1</assertj.version>
     <mockito.version>4.4.0</mockito.version>
+
+    <mongodriver.version>3.12.7</mongodriver.version>
+    <de.bwaldvogel.version>1.11.1</de.bwaldvogel.version>
+    <testcontainers.version>1.15.1</testcontainers.version>
+    <awaitility.version>4.2.0</awaitility.version>
+    <logback.version>1.2.3</logback.version>
+    <picocli.version>4.7.6</picocli.version>
   </properties>
 
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -41,6 +49,53 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>${mongodriver.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>de.bwaldvogel</groupId>
+      <artifactId>mongo-java-server</artifactId>
+      <version>${de.bwaldvogel.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mongodb</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>${awaitility.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>info.picocli</groupId>
+      <artifactId>picocli</artifactId>
+      <version>${picocli.version}</version>
+    </dependency>
+
   </dependencies>
 
 </project>
