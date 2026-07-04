@@ -55,6 +55,16 @@ public class BookingControllerTest {
     }
 
     @Test
+    public void testDisplayAllBookingsWithEmptyList() {
+
+        when(bookingRepository.findAll()).thenReturn(null);
+
+        bookingController.getAllBookings();
+
+        verify(bookingView).displayBookings(null);
+    }
+
+    @Test
     public void testAddNewBookingWhenBookingAlreadyExists() {
 
         Booking toAdd =
