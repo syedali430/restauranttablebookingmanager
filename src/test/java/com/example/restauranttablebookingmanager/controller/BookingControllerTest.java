@@ -55,6 +55,41 @@ public class BookingControllerTest {
     }
 
     @Test
+    public void testAddNewBookingWhenBookingAlreadyExists() {
+
+        Booking toAdd =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        Booking existing =
+                new Booking(
+                        "TBL-001",
+                        "Marco Rossi",
+                        "T01",
+                        "2026-07-10",
+                        "19:30",
+                        "Window seat"
+                );
+
+        when(bookingRepository.findById("TBL-001")).thenReturn(existing);
+
+        bookingController.addBooking(toAdd);
+
+        verify(bookingView).showErrorMessage(
+                "Booking already exists with ID TBL-001",
+                existing
+        );
+
+        verifyNoMoreInteractions(ignoreStubs(bookingRepository));
+    }
+
+    @Test
     public void testAddNewBookingWhenBookingDoesNotExist() {
 
         Booking booking =
