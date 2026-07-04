@@ -15,4 +15,9 @@ public class BookingController {
         this.repository = repository;
         this.view = view;
     }
+
+    public void getAllBookings() {
+
+        view.displayBookings(repository.findAll());
+    }
 }
