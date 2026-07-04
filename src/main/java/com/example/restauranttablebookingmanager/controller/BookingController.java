@@ -1,5 +1,6 @@
 package com.example.restauranttablebookingmanager.controller;
 
+import com.example.restauranttablebookingmanager.model.Booking;
 import com.example.restauranttablebookingmanager.repository.BookingRepository;
 import com.example.restauranttablebookingmanager.view.BookingView;
 
@@ -19,5 +20,18 @@ public class BookingController {
     public void getAllBookings() {
 
         view.displayBookings(repository.findAll());
+    }
+
+    public synchronized void addBooking(Booking booking) {
+
+        Booking existing =
+                repository.findById(booking.getBookingId());
+
+        if (existing != null) {
+            return;
+        }
+
+        repository.save(booking);
+        view.addBooking(booking);
     }
 }
