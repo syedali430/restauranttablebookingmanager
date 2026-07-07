@@ -368,6 +368,89 @@
 		    </build>
 		
 		</profile>
+		
+		<profile>
+
+		    <id>coveralls</id>
+		
+		    <build>
+		
+		        <plugins>
+		
+		            <plugin>
+		
+		                <groupId>org.jacoco</groupId>
+		                <artifactId>jacoco-maven-plugin</artifactId>
+		                <version>${jacoco.version}</version>
+		
+		                <configuration>
+		
+		                    <excludes>
+		                        <exclude>**/model/*.*</exclude>
+		                        <exclude>**/com/example/restauranttablebookingmanager/app/**</exclude>
+		                    </excludes>
+		
+		                </configuration>
+		
+		                <executions>
+		
+		                    <execution>
+		                        <goals>
+		                            <goal>prepare-agent</goal>
+		                        </goals>
+		                    </execution>
+		
+		                    <execution>
+		
+		                        <id>report</id>
+		                        <phase>verify</phase>
+		
+		                        <goals>
+		                            <goal>report</goal>
+		                        </goals>
+		
+		                    </execution>
+		
+		                </executions>
+		
+		            </plugin>
+		
+		            <plugin>
+		
+		                <groupId>org.eluder.coveralls</groupId>
+		                <artifactId>coveralls-maven-plugin</artifactId>
+		                <version>${coveralls.version}</version>
+		
+		                <dependencies>
+		
+		                    <dependency>
+		                        <groupId>javax.xml.bind</groupId>
+		                        <artifactId>jaxb-api</artifactId>
+		                        <version>${javax.xml.bind.version}</version>
+		                    </dependency>
+		
+		                </dependencies>
+		
+		                <executions>
+		
+		                    <execution>
+		                        <phase>verify</phase>
+		
+		                        <goals>
+		                            <goal>report</goal>
+		                        </goals>
+		
+		                    </execution>
+		
+		                </executions>
+		
+		            </plugin>
+		
+		        </plugins>
+		
+		    </build>
+		
+		</profile>
 	
 	</profiles>
 
