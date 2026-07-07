@@ -255,6 +255,19 @@
 		    <artifactId>sonar-maven-plugin</artifactId>
 		    <version>${sonar.version}</version>
 		</plugin>
+		
+		<plugin>
+		    <groupId>org.eluder.coveralls</groupId>
+		    <artifactId>coveralls-maven-plugin</artifactId>
+		    <version>${coveralls.version}</version>
+		    <dependencies>
+		        <dependency>
+		            <groupId>javax.xml.bind</groupId>
+		            <artifactId>jaxb-api</artifactId>
+		            <version>${javax.xml.bind.version}</version>
+		        </dependency>
+		    </dependencies>
+		</plugin>
 	
 	  </plugins>
 	</build>
