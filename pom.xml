@@ -25,6 +25,14 @@
     <awaitility.version>4.2.0</awaitility.version>
     <logback.version>1.2.3</logback.version>
     <picocli.version>4.7.6</picocli.version>
+    
+    <surefire.version>3.0.0-M5</surefire.version>
+	<jacoco.version>0.8.7</jacoco.version>
+	<io.fabric8.version>0.40.2</io.fabric8.version>
+	<sonar.version>3.8.0.2131</sonar.version>
+	<coveralls.version>4.3.0</coveralls.version>
+	<javax.xml.bind.version>2.3.1</javax.xml.bind.version>
+	<pitest-maven-version>1.5.2</pitest-maven-version>
   </properties>
 
   <dependencies>
