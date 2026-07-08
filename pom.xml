@@ -15,53 +15,49 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
+    <pitest-maven-version>1.5.2</pitest-maven-version>
     <junit.version>4.13.2</junit.version>
     <assertj.version>3.17.1</assertj.version>
     <mockito.version>4.4.0</mockito.version>
-
     <mongodriver.version>3.12.7</mongodriver.version>
-    <de.bwaldvogel.version>1.11.1</de.bwaldvogel.version>
-    <testcontainers.version>1.15.1</testcontainers.version>
-    <awaitility.version>4.2.0</awaitility.version>
     <logback.version>1.2.3</logback.version>
-    <picocli.version>4.7.6</picocli.version>
-    
+    <testcontainers.version>1.15.1</testcontainers.version>
+    <de.bwaldvogel.version>1.11.1</de.bwaldvogel.version>
     <surefire.version>3.0.0-M5</surefire.version>
-	<jacoco.version>0.8.7</jacoco.version>
-	<io.fabric8.version>0.40.2</io.fabric8.version>
-	<sonar.version>3.8.0.2131</sonar.version>
-	<coveralls.version>4.3.0</coveralls.version>
-	<javax.xml.bind.version>2.3.1</javax.xml.bind.version>
-	<pitest-maven-version>1.5.2</pitest-maven-version>
-	
-	<sonar.issue.ignore.multicriteria>e11,e12,e13,e14</sonar.issue.ignore.multicriteria>
-	
-	<sonar.issue.ignore.multicriteria.e11.ruleKey>java:S117</sonar.issue.ignore.multicriteria.e11.ruleKey>
-	<sonar.issue.ignore.multicriteria.e11.resourceKey>**/*SwingView.java</sonar.issue.ignore.multicriteria.e11.resourceKey>
-	
-	<sonar.issue.ignore.multicriteria.e12.ruleKey>java:S3252</sonar.issue.ignore.multicriteria.e12.ruleKey>
-	<sonar.issue.ignore.multicriteria.e12.resourceKey>**/*SwingView.java</sonar.issue.ignore.multicriteria.e12.resourceKey>
-	
-	<sonar.issue.ignore.multicriteria.e13.ruleKey>java:S2699</sonar.issue.ignore.multicriteria.e13.ruleKey>
-	<sonar.issue.ignore.multicriteria.e13.resourceKey>**/*SwingViewTest.java</sonar.issue.ignore.multicriteria.e13.resourceKey>
-	
-	<sonar.issue.ignore.multicriteria.e14.ruleKey>java:S3577</sonar.issue.ignore.multicriteria.e14.ruleKey>
-	<sonar.issue.ignore.multicriteria.e14.resourceKey>**/*E2E.java</sonar.issue.ignore.multicriteria.e14.resourceKey>
-	
-	<sonar.coverage.exclusions>
-	  **/model/*.*,
-	  **/com/example/restauranttablebookingmanager/app/**
-	</sonar.coverage.exclusions>
-	
-	<sonar.junit.reportPaths>
-	  ${project.build.directory}/surefire-reports,
-	  ${project.build.directory}/failsafe-reports
-	</sonar.junit.reportPaths>
-	
+    <jacoco.version>0.8.7</jacoco.version>
+    <io.fabric8.version>0.40.2</io.fabric8.version>
+    <picocli.version>4.7.6</picocli.version>
+    <awaitility.version>4.2.0</awaitility.version>
+    <sonar.version>3.8.0.2131</sonar.version>
+    <coveralls.version>4.3.0</coveralls.version>
+    <javax.xml.bind.version>2.3.1</javax.xml.bind.version>
+
+    <sonar.issue.ignore.multicriteria>e11,e12,e13,e14</sonar.issue.ignore.multicriteria>
+
+    <sonar.issue.ignore.multicriteria.e11.ruleKey>java:S117</sonar.issue.ignore.multicriteria.e11.ruleKey>
+    <sonar.issue.ignore.multicriteria.e11.resourceKey>**/*SwingView.java</sonar.issue.ignore.multicriteria.e11.resourceKey>
+
+    <sonar.issue.ignore.multicriteria.e12.ruleKey>java:S3252</sonar.issue.ignore.multicriteria.e12.ruleKey>
+    <sonar.issue.ignore.multicriteria.e12.resourceKey>**/*SwingView.java</sonar.issue.ignore.multicriteria.e12.resourceKey>
+
+    <sonar.issue.ignore.multicriteria.e13.ruleKey>java:S2699</sonar.issue.ignore.multicriteria.e13.ruleKey>
+    <sonar.issue.ignore.multicriteria.e13.resourceKey>**/*SwingViewTest.java</sonar.issue.ignore.multicriteria.e13.resourceKey>
+
+    <sonar.issue.ignore.multicriteria.e14.ruleKey>java:S3577</sonar.issue.ignore.multicriteria.e14.ruleKey>
+    <sonar.issue.ignore.multicriteria.e14.resourceKey>**/*E2E.java</sonar.issue.ignore.multicriteria.e14.resourceKey>
+
+    <sonar.coverage.exclusions>
+      **/model/*.*,
+      **/com/example/restauranttablebookingmanager/app/**
+    </sonar.coverage.exclusions>
+
+    <sonar.junit.reportPaths>
+      ${project.build.directory}/surefire-reports,
+      ${project.build.directory}/failsafe-reports
+    </sonar.junit.reportPaths>
   </properties>
 
   <dependencies>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -71,7 +67,7 @@
 
     <dependency>
       <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
+      <artifactId>assertj-swing-junit</artifactId>
       <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
@@ -82,32 +78,17 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
-    
-    <dependency>
-	    <groupId>org.assertj</groupId>
-	    <artifactId>assertj-swing-junit</artifactId>
-	    <version>3.17.1</version>
-	    <scope>test</scope>
-	</dependency>
-
-	<dependency>
-	    <groupId>org.assertj</groupId>
-	    <artifactId>assertj-swing</artifactId>
-	    <version>3.17.1</version>
-	    <scope>test</scope>
-	</dependency>
-
-	<dependency>
-	    <groupId>net.java.dev.jna</groupId>
-	    <artifactId>jna</artifactId>
-	    <version>5.8.0</version>
-	    <scope>test</scope>
-	</dependency>
 
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>mongo-java-driver</artifactId>
       <version>${mongodriver.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
     </dependency>
 
     <dependency>
@@ -132,326 +113,258 @@
     </dependency>
 
     <dependency>
-      <groupId>org.awaitility</groupId>
-      <artifactId>awaitility</artifactId>
-      <version>${awaitility.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>info.picocli</groupId>
       <artifactId>picocli</artifactId>
       <version>${picocli.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>${awaitility.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-  
+
   <build>
-	  <plugins>
-	
-	    <plugin>
-	      <groupId>org.codehaus.mojo</groupId>
-	      <artifactId>build-helper-maven-plugin</artifactId>
-	      <version>3.5.0</version>
-	      <executions>
-	        <execution>
-	          <id>add-extra-test-sources</id>
-	          <phase>generate-test-sources</phase>
-	          <goals>
-	            <goal>add-test-source</goal>
-	          </goals>
-	          <configuration>
-	            <sources>
-	              <source>src/it/java</source>
-	              <source>src/e2e/java</source>
-	            </sources>
-	          </configuration>
-	        </execution>
-	      </executions>
-	    </plugin>
-	    
-	    <plugin>
-	    	<groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-surefire-plugin</artifactId>
-		    <version>${surefire.version}</version>
-		    <configuration>
-		        <includes>
-		            <include>**/*Test.java</include>
-		        </includes>
-		        <excludes>
-		            <exclude>**/*IT.java</exclude>
-		            <exclude>**/*E2E.java</exclude>
-		        </excludes>
-		    </configuration>
-		</plugin>
-		
-		<plugin>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-failsafe-plugin</artifactId>
-		    <version>${surefire.version}</version>
-		    <configuration>
-		        <systemPropertyVariables>
-		            <mongo.port>${mongo.mapped.port}</mongo.port>
-		        </systemPropertyVariables>
-		        <includes>
-		            <include>**/*IT.java</include>
-		            <include>**/*E2E.java</include>
-		        </includes>
-		    </configuration>
-		    <executions>
-		        <execution>
-		            <id>integration-tests</id>
-		            <goals>
-		                <goal>integration-test</goal>
-		                <goal>verify</goal>
-		            </goals>
-		        </execution>
-		    </executions>
-		</plugin>
-		
-		<plugin>
-		    <groupId>io.fabric8</groupId>
-		    <artifactId>docker-maven-plugin</artifactId>
-		    <version>${io.fabric8.version}</version>
-		    <configuration>
-		        <images>
-		            <image>
-		                <name>mongo:4.4.3</name>
-		                <run>
-		                    <ports>
-		                        <port>mongo.mapped.port:27017</port>
-		                    </ports>
-		                </run>
-		            </image>
-		        </images>
-		    </configuration>
-		    <executions>
-		        <execution>
-		            <id>docker-start</id>
-		            <phase>pre-integration-test</phase>
-		            <goals>
-		                <goal>start</goal>
-		            </goals>
-		        </execution>
-		
-		        <execution>
-		            <id>docker-stop</id>
-		            <phase>post-integration-test</phase>
-		            <goals>
-		                <goal>stop</goal>
-		            </goals>
-		        </execution>
-		    </executions>
-		</plugin>
-		
-		<plugin>
-		    <groupId>org.sonarsource.scanner.maven</groupId>
-		    <artifactId>sonar-maven-plugin</artifactId>
-		    <version>${sonar.version}</version>
-		</plugin>
-		
-		<plugin>
-		    <groupId>org.eluder.coveralls</groupId>
-		    <artifactId>coveralls-maven-plugin</artifactId>
-		    <version>${coveralls.version}</version>
-		    <dependencies>
-		        <dependency>
-		            <groupId>javax.xml.bind</groupId>
-		            <artifactId>jaxb-api</artifactId>
-		            <version>${javax.xml.bind.version}</version>
-		        </dependency>
-		    </dependencies>
-		</plugin>
-	
-	  </plugins>
-	</build>
-	
-	<profiles>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>add-extra-test-sources</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/it/java</source>
+                <source>src/e2e/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
-	    <profile>
-	        <id>jacoco</id>
-	
-	        <build>
-	            <plugins>
-	
-	                <plugin>
-	                    <groupId>org.jacoco</groupId>
-	                    <artifactId>jacoco-maven-plugin</artifactId>
-	                    <version>${jacoco.version}</version>
-	
-	                    <configuration>
-	                        <excludes>
-	                            <exclude>**/model/*.*</exclude>
-	                            <exclude>**/com/example/restauranttablebookingmanager/app/**</exclude>
-	                        </excludes>
-	                    </configuration>
-	
-	                    <executions>
-	
-	                        <execution>
-	                            <goals>
-	                                <goal>prepare-agent</goal>
-	                            </goals>
-	                        </execution>
-	
-	                        <execution>
-	                            <id>report</id>
-	                            <phase>verify</phase>
-	
-	                            <goals>
-	                                <goal>report</goal>
-	                            </goals>
-	
-	                        </execution>
-	
-	                    </executions>
-	
-	                </plugin>
-	
-	            </plugins>
-	
-	        </build>
-	
-	    </profile>
-	    
-	    <profile>
-		    <id>pit</id>
-		
-		    <build>
-		        <plugins>
-		
-		            <plugin>
-		                <groupId>org.pitest</groupId>
-		                <artifactId>pitest-maven</artifactId>
-		                <version>${pitest-maven-version}</version>
-		
-		                <configuration>
-		
-		                    <targetClasses>
-		                        <param>com.example.restauranttablebookingmanager.controller.*</param>
-		                    </targetClasses>
-		
-		                    <targetTests>
-		                        <param>com.example.restauranttablebookingmanager.controller.*Test</param>
-		                    </targetTests>
-		
-		                    <excludedTestClasses>
-		                        <param>com.example.restauranttablebookingmanager.controller.**IT</param>
-		                        <param>com.example.restauranttablebookingmanager.**E2E</param>
-		                        <param>com.example.restauranttablebookingmanager.repository.**</param>
-		                        <param>com.example.restauranttablebookingmanager.view.swing.**</param>
-		                        <param>com.example.restauranttablebookingmanager.controller.racecondition.**</param>
-		                    </excludedTestClasses>
-		
-		                    <mutators>
-		                        <mutator>DEFAULTS</mutator>
-		                    </mutators>
-		
-		                    <mutationThreshold>100</mutationThreshold>
-		
-		                    <outputFormats>
-		                        <param>HTML</param>
-		                    </outputFormats>
-		
-		                </configuration>
-		
-		            </plugin>
-		
-		        </plugins>
-		
-		    </build>
-		
-		</profile>
-		
-		<profile>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*IT.java</exclude>
+            <exclude>**/*E2E.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
 
-		    <id>coveralls</id>
-		
-		    <build>
-		
-		        <plugins>
-		
-		            <plugin>
-		
-		                <groupId>org.jacoco</groupId>
-		                <artifactId>jacoco-maven-plugin</artifactId>
-		                <version>${jacoco.version}</version>
-		
-		                <configuration>
-		
-		                    <excludes>
-		                        <exclude>**/model/*.*</exclude>
-		                        <exclude>**/com/example/restauranttablebookingmanager/app/**</exclude>
-		                    </excludes>
-		
-		                </configuration>
-		
-		                <executions>
-		
-		                    <execution>
-		                        <goals>
-		                            <goal>prepare-agent</goal>
-		                        </goals>
-		                    </execution>
-		
-		                    <execution>
-		
-		                        <id>report</id>
-		                        <phase>verify</phase>
-		
-		                        <goals>
-		                            <goal>report</goal>
-		                        </goals>
-		
-		                    </execution>
-		
-		                </executions>
-		
-		            </plugin>
-		
-		            <plugin>
-		
-		                <groupId>org.eluder.coveralls</groupId>
-		                <artifactId>coveralls-maven-plugin</artifactId>
-		                <version>${coveralls.version}</version>
-		
-		                <dependencies>
-		
-		                    <dependency>
-		                        <groupId>javax.xml.bind</groupId>
-		                        <artifactId>jaxb-api</artifactId>
-		                        <version>${javax.xml.bind.version}</version>
-		                    </dependency>
-		
-		                </dependencies>
-		
-		                <executions>
-		
-		                    <execution>
-		                        <phase>verify</phase>
-		
-		                        <goals>
-		                            <goal>report</goal>
-		                        </goals>
-		
-		                    </execution>
-		
-		                </executions>
-		
-		            </plugin>
-		
-		        </plugins>
-		
-		    </build>
-		
-		</profile>
-	
-	</profiles>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <mongo.port>${mongo.mapped.port}</mongo.port>
+          </systemPropertyVariables>
+          <includes>
+            <include>**/*IT.java</include>
+            <include>**/*E2E.java</include>
+          </includes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${io.fabric8.version}</version>
+        <configuration>
+          <images>
+            <image>
+              <name>mongo:4.4.3</name>
+              <run>
+                <ports>
+                  <port>mongo.mapped.port:27017</port>
+                </ports>
+              </run>
+            </image>
+          </images>
+        </configuration>
+        <executions>
+          <execution>
+            <id>docker-start</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>docker-stop</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>${sonar.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>${coveralls.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${javax.xml.bind.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>jacoco</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco.version}</version>
+            <configuration>
+              <excludes>
+                <exclude>**/model/*.*</exclude>
+                <exclude>**/com/example/restauranttablebookingmanager/app/**</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>report</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>pit</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>${pitest-maven-version}</version>
+            <configuration>
+              <targetClasses>
+                <param>com.example.restauranttablebookingmanager.controller.*</param>
+              </targetClasses>
+              <targetTests>
+                <param>com.example.restauranttablebookingmanager.controller.*Test</param>
+              </targetTests>
+              <excludedTestClasses>
+                <param>com.example.restauranttablebookingmanager.controller.**IT</param>
+                <param>com.example.restauranttablebookingmanager.**E2E</param>
+                <param>com.example.restauranttablebookingmanager.repository.**</param>
+                <param>com.example.restauranttablebookingmanager.view.swing.**</param>
+                <param>com.example.restauranttablebookingmanager.controller.racecondition.**</param>
+              </excludedTestClasses>
+              <mutators>
+                <mutator>DEFAULTS</mutator>
+              </mutators>
+              <mutationThreshold>100</mutationThreshold>
+              <outputFormats>
+                <param>HTML</param>
+              </outputFormats>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>coveralls</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco.version}</version>
+            <configuration>
+              <excludes>
+                <exclude>**/model/*.*</exclude>
+                <exclude>**/com/example/restauranttablebookingmanager/app/**</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>report</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.eluder.coveralls</groupId>
+            <artifactId>coveralls-maven-plugin</artifactId>
+            <version>${coveralls.version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${javax.xml.bind.version}</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
